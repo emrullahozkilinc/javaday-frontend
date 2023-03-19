@@ -1,43 +1,753 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>React App</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <body style="background-color: #ECEDF2;">
     <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div class="container" style="background-color: #ECEDF2; margin-bottom: 50px; margin-top: 50px">
+      <form style="background-color: #FFFFFF; padding: 32px;" onsubmit="return validateForm()">
+        <div class="form-group" style="margin-bottom: 60px;">
+          <h1 class="text-center" style="margin-top: 20px;">Java Day Istanbul Registration Form</h1>
+        </div>
+        <fieldset style="display: none;">
+        <div>
+          <div class="form-group" style="margin-bottom: 50px;">
+            <p>
+              Java Day Istanbul, İstanbul Java Kullanıcı Grubu tarafından desteklenen Türkiye'deki en etkili
+              uluslararası topluluk odaklı yazılım konferanslarından biridir. Konferans 2015 yılından bu yana her yıl
+              İstanbul'da gerçekleşmektedir.
+            </p>
+          </div>
+          <div class="form-group" style="margin-bottom: 50px;">
+            <div class="row">
+              <div class="col-5">
+                <p><strong>Ne zaman:</strong></p>
+                <p><strong>Nerede: </strong></p>
+                <p><strong>Konferans Saatleri: </strong></p>
+                <p><strong>Email: </strong></p>
+                <p><strong>Konferans Ücreti:</strong></p>
+              </div>
+              <div class="col">
+                <p>6 Mayıs 2023, Cumartesi</p>
+                <p>Elite World Asia, Istanbul</p>
+                <p>09: 00 - 18:00</p>
+                <p>contact@javaday.istanbul</p>
+                <p>2.499₺ + %18 Vat</p>
+              </div>
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 50px;">
+            <h3>Information / Bilgilendirme</h3>
+            <p>3 ve üzeri katılımlar için grup indirimi mevcuttur. Lütfen formu doldurunuz.
+              Ekibimiz proforma faturanızı katılımcı sayınıza göre özel bir indirimle sizinle paylaşacaktır.</p>
+          </div>
+          <div class="form-group" style="margin-bottom: 50px;">
+            <p>Group discounts are available. Please fill registration form.
+              Our team will send your proforma invoice with a special discount according to the number of participants.</p>
+          </div>
+          <div class="form-group" style="margin-bottom: 30px;">
+            <h3>Satınalma Yetkilisi / Buyer Responsible</h3>
+          </div>
+          <div class="form-group" style="margin-bottom: 30px;">
+            <p>Satınalma/kayıt işlemini yapan kişinin doldurması gereklidir.</p>
+          </div>
+          <div class="form-group" style="margin-bottom: 30px;">
+            <label for="inputName" class="text-secondary">Ad Soyad / Name Surname <span style="color: #4EB7F5; font-size: 22px">*</span></label>
+            <input type="text" class="form-control" id="inputName" name="name" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 30px;">
+            <label for="inputEmail" class="text-secondary">Eposta / Email <span style="color: #4EB7F5; font-size: 22px">*</span></label>
+            <input type="email" class="form-control" id="inputEmail" name="email" required>
+          </div>
+          <div class="form-group" style="margin-bottom: 30px;">
+            <label for="inputPhone" class="text-secondary">Telefon Numarası / Phone Number</label>
+            <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="0 ile başlayın (örn. 05555555555)">
+          </div>
+        </div>
+          <div class="row">
+            <div class="col">
+              <input type="button" class="btn btn-primary"
+                     style="margin: 0 auto; display: block; border-radius: 25px; background-color: #162d3d; padding: 10px 20px; font-size: 15px;"
+                     value="  Sonraki Sayfa / Next Page >  ">
+            </div>
+          </div>
+        </fieldset>
+        <fieldset style="display: none">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+          <div class="form-group" style="margin-bottom: 30px;">
+            <h3>Fatura Bilgileri / Invoice Information</h3>
+          </div>
+          <div class="form-group" style="margin-bottom: 30px;">
+            <p>Fatura bilgileri için firmanız ile kayıt işlemi öncesinde teyitleşmenizi önemle rica ederiz.</p>
+          </div>
+          <div class="form-group" style="margin-bottom: 50px;">
+            <p>For invoice information, we kindly ask you to confirm with your company before the registration.</p>
+          </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+          <div class="row" style="margin-bottom: 30px">
+            <div class="col">
+              <div class="inputGroup">
+                <input id="radio1" name="invoiceType" type="radio" onclick="showFirst()" value="company" required/>
+                <label for="radio1">Şirket / Company</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="inputGroup">
+                <input id="radio2" name="invoiceType" type="radio" onclick="showSecond()" value="individual"/>
+                <label for="radio2">Bireysel / Individual</label>
+              </div>
+            </div>
+          </div>
+
+          <div id="company-container" style="display: none">
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="inputCompanyName" class="text-secondary">Firma Ünvanı / Company Name</label>
+              <input type="text" class="form-control" id="inputCompanyName" name="companyName">
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="inputInvoiceAddress" class="text-secondary">Fatura Adresi / Invoice Address <span style="color: #4EB7F5; font-size: 22px">*</span></label>
+              <textarea class="form-control" id="inputInvoiceAddress" name="invoiceAddress"></textarea>
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="inputCity" class="text-secondary">Şehir / City </label>
+              <input type="text" class="form-control" id="inputCity" name="city">
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <p>Şahıs firmaları için Vergi Numarası kısmına TC kimlik numarası yazılması yeterlidir.</p>
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="inputTaxId" class="text-secondary">Vergi Numarası / Tax ID </label>
+              <input type="number" class="form-control" id="inputTaxId" name="taxId">
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="inputTaxOffice" class="text-secondary">Vergi Dairesi / Tax Office </label>
+              <input type="text" class="form-control" id="inputTaxOffice" name="taxOffice">
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <p>Kdv Tevkifat Muafiyeti için firmanız ile teyitleşmeniz gereklidir. Firma beyanı esas alınmaktadır. Yasal sorumluluk beyan veren firmaya aittir. Kodu 616:  5018 sayılı kanuna ekli cetvellerdeki idare, kurum ve kuruluşlara yapılan diğer hizmetler.</p>
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <p>This exemption is only for Turkish Customers.</p>
+            </div>
+            <div style="margin-bottom: 30px; align-items: center;">
+              <label for="inputKdv" class="text-secondary">Kdv Tevkifat Muafiyeti/Vat Exemption:</label>
+              <select class="form-select" id="inputKdv" name="kdv">
+                <option disabled selected>Bir seçenek seçin</option>
+                <option value="false">Yok</option>
+                <option value="true">Var / Kodu: 616 - Muafiyet Oranı: 5/10</option>
+              </select>
+            </div>
+          </div>
+          <div id="individual-container" style="display: none">
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="inputInvoiceAddress2" class="text-secondary">Fatura Adresi / Invoice Address <span style="color: #4EB7F5; font-size: 22px">*</span></label>
+              <textarea class="form-control" id="inputInvoiceAddress2" name="invoiceAddress2"></textarea>
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="inputCity2" class="text-secondary">Şehir / City </label>
+              <input type="text" class="form-control" id="inputCity2" name="city2">
+            </div>
+            <div class="form-group" style="margin-bottom: 30px;">
+              <label for="inputNationalId" class="text-secondary">TC Kimlik No / National Id </label>
+              <input type="number" class="form-control" id="inputNationalId" name="inputNationalId">
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col">
+              <input type="button" class="btn btn-primary"
+                     style="margin: 0 auto; display: block; border-radius: 25px; background-color: #162d3d; padding: 10px 20px; font-size: 15px;"
+                     value="  < Önceki Sayfa / Prev Page  ">
+            </div>
+            <div class="col"></div>
+            <div class="col">
+              <input type="button" class="btn btn-primary"
+                     style="margin: 0 auto; display: block; border-radius: 25px; background-color: #162d3d; padding: 10px 20px; font-size: 15px;"
+                     value="  Sonraki Sayfa / Next Page >  ">
+            </div>
+          </div>
+        </fieldset>
+        <fieldset style="display: none;">
+          <select id="groupCount" class="form-control" name="participants" onchange="participantChanged()">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          <br>
+          <div id="groupContainer">
+            <div class="form-group row group" id="group1" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname1">İsim:</label>
+                <input type="text" class="form-control" id="firstname1" name="firstname1">
+              </div>
+              <div class="form-group col">
+                <label for="lastname1">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname1" name="lastname1">
+              </div>
+              <div class="form-group col">
+                <label for="email1">Email:</label>
+                <input type="email" class="form-control" id="email1" name="email1">
+              </div>
+            </div>
+            <div class="form-group row group" id="group2" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname2">İsim:</label>
+                <input type="text" class="form-control" id="firstname2" name="firstname2">
+              </div>
+              <div class="form-group col">
+                <label for="lastname2">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname2" name="lastname2">
+              </div>
+              <div class="form-group col">
+                <label for="email2">Email:</label>
+                <input type="email" class="form-control" id="email2" name="email2">
+              </div>
+            </div>
+            <div class="form-group row group" id="group3" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname3">İsim:</label>
+                <input type="text" class="form-control" id="firstname3" name="firstname3">
+              </div>
+              <div class="form-group col">
+                <label for="lastname3">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname3" name="lastname3">
+              </div>
+              <div class="form-group col">
+                <label for="email3">Email:</label>
+                <input type="email" class="form-control" id="email3" name="email3">
+              </div>
+            </div>
+            <div class="form-group row group" id="group4" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname4">İsim:</label>
+                <input type="text" class="form-control" id="firstname4" name="firstname4">
+              </div>
+              <div class="form-group col">
+                <label for="lastname4">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname4" name="lastname4">
+              </div>
+              <div class="form-group col">
+                <label for="email4">Email:</label>
+                <input type="email" class="form-control" id="email4" name="email4">
+              </div>
+            </div>
+            <div class="form-group row group" id="group5" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname5">İsim:</label>
+                <input type="text" class="form-control" id="firstname5" name="firstname5">
+              </div>
+              <div class="form-group col">
+                <label for="lastname5">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname5" name="lastname5">
+              </div>
+              <div class="form-group col">
+                <label for="email5">Email:</label>
+                <input type="email" class="form-control" id="email5" name="email5">
+              </div>
+            </div>
+            <div class="form-group row group" id="group6" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname6">İsim:</label>
+                <input type="text" class="form-control" id="firstname6" name="firstname6">
+              </div>
+              <div class="form-group col">
+                <label for="lastname6">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname6" name="lastname6">
+              </div>
+              <div class="form-group col">
+                <label for="email6">Email:</label>
+                <input type="email" class="form-control" id="email6" name="email6">
+              </div>
+            </div>
+            <div class="form-group row group" id="group7" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname7">İsim:</label>
+                <input type="text" class="form-control" id="firstname7" name="firstname7">
+              </div>
+              <div class="form-group col">
+                <label for="lastname7">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname7" name="lastname7">
+              </div>
+              <div class="form-group col">
+                <label for="email7">Email:</label>
+                <input type="email" class="form-control" id="email7" name="email7">
+              </div>
+            </div>
+            <div class="form-group row group" id="group8" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname8">İsim:</label>
+                <input type="text" class="form-control" id="firstname8" name="firstname8">
+              </div>
+              <div class="form-group col">
+                <label for="lastname8">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname8" name="lastname8">
+              </div>
+              <div class="form-group col">
+                <label for="email8">Email:</label>
+                <input type="email" class="form-control" id="email8" name="email8">
+              </div>
+            </div>
+            <div class="form-group row group" id="group9" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname9">İsim:</label>
+                <input type="text" class="form-control" id="firstname9" name="firstname9">
+              </div>
+              <div class="form-group col">
+                <label for="lastname9">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname9" name="lastname9">
+              </div>
+              <div class="form-group col">
+                <label for="email9">Email:</label>
+                <input type="email" class="form-control" id="email9" name="email9">
+              </div>
+            </div>
+            <div class="form-group row group" id="group10" style="margin-bottom: 30px; display: none">
+              <div class="form-group col">
+                <label for="firstname10">İsim:</label>
+                <input type="text" class="form-control" id="firstname10" name="firstname10">
+              </div>
+              <div class="form-group col">
+                <label for="lastname10">Soyisim:</label>
+                <input type="text" class="form-control" id="lastname10" name="lastname10">
+              </div>
+              <div class="form-group col">
+                <label for="email10">Email:</label>
+                <input type="email" class="form-control" id="email10" name="email10">
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <input type="button" class="btn btn-primary"
+                     style="margin: 0 auto; display: block; border-radius: 25px; background-color: #162d3d; padding: 10px 20px; font-size: 15px;"
+                     value="  < Önceki Sayfa / Prev Page  ">
+            </div>
+            <div class="col"></div>
+            <div class="col">
+              <input type="button" class="btn btn-primary"
+                     style="margin: 0 auto; display: block; border-radius: 25px; background-color: #162d3d; padding: 10px 20px; font-size: 15px;"
+                     value="  Sonraki Sayfa / Next Page >  ">
+            </div>
+          </div>
+        </fieldset>
+        <fieldset style="display: none;">
+
+          <div class="overlay hidden"></div>
+
+          <div class="row">
+            <div class="col">
+              <div class="form-group" style="margin-bottom: 50px;">
+                <h3>Ödeme Tipi</h3>
+                <select class="form-control" name="paymentType">
+                  <option value="" disabled selected>Ödeme Tipini Seçin...</option>
+                  <option value="CREDIT_CART">Kredi Kartı</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="col">
+              <div class="form-group" style="margin-bottom: 50px;">
+                <h3>Tahsil Edilecek Ücret:</h3>
+                <span id="calc-price"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="g-recaptcha" data-sitekey="6LcjVQwiAAAAALipCC22tuNJF-qAXD96llsTWyv8"></div>
+          <br>
+
+          <div class="row">
+            <div class="col">
+              <input type="button" class="btn btn-primary"
+                     style="margin: 0 auto; display: block; border-radius: 25px; background-color: #162d3d; padding: 10px 20px; font-size: 15px;"
+                     value="  < Önceki Sayfa / Prev Page  ">
+            </div>
+            <div class="col"></div>
+            <div class="col">
+              <input type="submit" class="btn btn-primary btn-open"
+                     style="margin: 0 auto; display: block; border-radius: 25px; background-color: #162d3d; padding: 10px 20px; font-size: 15px;"
+                     value="  Gönder / Submit >  ">
+            </div>
+          </div>
+        </fieldset>
+
+      </form>
+    </div>
+
+    <!-- Modal -->
+    <section class="modal hidden">
+      <div>
+        <h3>Hata!</h3>
+        <br>
+        <div id="errors">
+
+        </div>
+      </div>
+    </section>
   </body>
+  <style>
+    .inputGroup {
+      background-color: #f4fafe;
+      display: block;
+      margin: 10px 0;
+      position: relative;
+    }
+    .inputGroup label {
+      padding: 12px 30px;
+      width: 100%;
+      display: block;
+      text-align: left;
+      color: #3c454c;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      transition: color 200ms ease-in;
+      overflow: hidden;
+    }
+    .inputGroup label:before {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      content: '';
+      background-color: #daeffe;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%) scale3d(1, 1, 1);
+      transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      z-index: -1;
+    }
+    .inputGroup label:after {
+      width: 32px;
+      height: 32px;
+      content: '';
+      border: 2px solid #d1d7dc;
+      background-color: #fff;
+      background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+      background-repeat: no-repeat;
+      background-position: 2px 3px;
+      border-radius: 50%;
+      z-index: 2;
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      transition: all 200ms ease-in;
+    }
+    .inputGroup input:checked ~ label {
+      color: #0077ff;
+    }
+    .inputGroup input:checked ~ label:before {
+      transform: translate(-50%, -50%) scale3d(56, 56, 1);
+      opacity: 1;
+    }
+    .inputGroup input:checked ~ label:after {
+      background-color: #3899ec;
+      border-color: #3899ec;
+    }
+    .inputGroup input {
+      width: 32px;
+      height: 32px;
+      order: 1;
+      z-index: 2;
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      visibility: hidden;
+    }
+    body {
+      background-color: #d1d7dc;
+      font-family: 'Fira Sans', sans-serif;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit;
+    }
+    html {
+      box-sizing: border-box;
+    }
+    code {
+      background-color: #9aa3ac;
+      padding: 0 8px;
+    }
+
+
+    /* Modal */
+
+    .modal {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.4rem;
+      padding: 1.3rem;
+      min-height: 250px;
+      position: relative;
+      top: 20%;
+      width: 650px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 15px;
+      z-index: 2;
+    }
+
+    .modal .flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal input {
+      padding: 0.7rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 0.9em;
+    }
+
+    .modal p {
+      font-size: 0.9rem;
+      color: #777;
+      margin: 0.4rem 0 0.2rem;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(3px);
+      z-index: 1;
+    }
+    .hidden{
+      display: none;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+          integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+          crossorigin="anonymous"></script>
+  <script>
+    const fieldSets = document.querySelectorAll('fieldset');
+    let currentPage = 0;
+
+    function showPage(pageIndex) {
+      fieldSets[currentPage].style.display = 'none';
+      fieldSets[pageIndex].style.display = 'block';
+      currentPage = pageIndex;
+    }
+
+    fieldSets[0].style.display = 'block';
+    const nextButtons = document.querySelectorAll('input[value="  Sonraki Sayfa / Next Page >  "]');
+    nextButtons.forEach(button => {
+      button.addEventListener('click', e => {
+        e.preventDefault();
+        showPage(currentPage + 1);
+      });
+    });
+
+    const previousButtons = document.querySelectorAll('input[value="  < Önceki Sayfa / Prev Page  "]');
+    previousButtons.forEach(button => {
+      button.addEventListener('click', e => {
+        e.preventDefault();
+        showPage(currentPage - 1);
+      });
+    });
+
+    function showFirst(){
+      document.getElementById("company-container").style.display= 'block';
+      document.getElementById("individual-container").style.display= 'none';
+    }
+
+    function showSecond(){
+      document.getElementById("company-container").style.display= 'none';
+      document.getElementById("individual-container").style.display= 'block';
+    }
+
+    const groupCountSelect = document.getElementById("groupCount");
+
+    let selectedCount;
+
+    groupCountSelect.addEventListener("change", function() {
+      selectedCount = this.value;
+      for (let i = 1; i <= 10; i++) {
+        let group = document.getElementById("group" + i);
+        if (i <= selectedCount) {
+          group.style.display = "flex";
+        } else {
+          group.style.display = "none";
+        }
+      }
+    });
+
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit',async (e) =>  {
+      e.preventDefault();
+      const formData= new FormData(form);
+      console.log(formData.get('name'))
+
+
+      const captchaResponse = formData.get('g-recaptcha-response');
+
+      for (const key of formData.keys()) {
+        console.log(key);
+      }
+
+      let result;
+      await fetch('http://localhost:8080/api/v1/recaptcha?captchaResponse=' + captchaResponse, {
+        method: 'GET'
+      }).then(function (response) {
+        return response.json();
+      }).then(function (data) {
+        result = data;
+      })
+
+      if (result === true) {
+        const participants = [];
+        for (let i = 1; i <= formData.get('participants'); i++) {
+          const participant = {}
+          participant['name'] = formData.get('firstname' + i);
+          participant['lastname'] = formData.get('lastname' + i);
+          participant['email'] = formData.get('email' + i);
+
+          participants.push(participant);
+        }
+
+        let object = {};
+
+        if (formData.get('invoiceType') === 'individual') {
+          object = {
+            'nationalId': formData.get('inputNationalId'),
+            'invoiceAddress': formData.get('invoiceAddress2'),
+            'city': formData.get('city2'),
+            'person': {
+              'name': formData.get('name'),
+              'email': formData.get('email'),
+              'phone': formData.get('phone')
+            },
+            'participants': participants,
+            'type': formData.get('invoiceType')
+          };
+        } else if (formData.get('invoiceType') === 'company') {
+          object = {
+            'companyName': formData.get('companyName'),
+            'invoiceAddress': formData.get('invoiceAddress'),
+            'city': formData.get('city'),
+            'isKDVLiability': formData.get('kdv'),
+            'taxId': formData.get('taxId'),
+            'taxOffice': formData.get('taxOffice'),
+            'person': {
+              'name': formData.get('name'),
+              'email': formData.get('email'),
+              'phone': formData.get('phone')
+            },
+            'participants': participants,
+            'type': formData.get('invoiceType')
+          }
+        }
+
+        /*Modal */
+        const modal = document.querySelector(".modal");
+        const overlay = document.querySelector(".overlay");
+
+        const openModal = function () {
+          modal.classList.remove("hidden");
+          overlay.classList.remove("hidden");
+        };
+
+        const closeModal = function () {
+          modal.classList.add("hidden");
+          overlay.classList.add("hidden");
+        };
+
+        overlay.addEventListener("click", closeModal);
+
+        const json = JSON.stringify(object);
+        await fetch('http://localhost:8080/api/v1/ticket', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: json
+        }).then(function (response) {
+          if (!response.ok) {
+            return response.text().then(text => {
+              throw JSON.parse(text);
+            });
+          }
+          return response.json();
+        }).then(function (data) {
+
+        }).catch(function (err) {
+          let errorsStr = "";
+          err.map(err => {
+            if (err.field === "nationalId")
+              errorsStr += "<p style='color: red'>TC kimlik numaranızı yanlış girdiniz. Lütfen kontrol edin.</p>";
+            else if (err.field === "person.phone")
+              errorsStr += "<p style='color: red'>Telefon numarasını yanlış girdiniz. Lütfen kontrol edin.</p>";
+            else if (err.field === "person.name")
+              errorsStr += "<p style='color: red'>İsim soyisim kısmını yanlış girdiniz. Lütfen kontrol edin.</p>";
+            else if (err.field === "person.email")
+              errorsStr += "<p style='color: red'>E-posta adresinizi yanlış girdiniz. Lütfen kontrol edin.</p>";
+            else if (err.field === "person.phone")
+              errorsStr += "<p style='color: red'>Telefon numarasını yanlış girdiniz. Lütfen kontrol edin.</p>";
+            else if (err.field === "invoiceAddress")
+              errorsStr += "<p style='color: red'>Adres kısmını boş bırakamazsınız. Lütfen kontrol edin.</p>";
+            else if (err.field === "city")
+              errorsStr += "<p style='color: red'>Şehir kısmını boş bırakamazsınız. Lütfen kontrol edin.</p>";
+            else if (err.field === "taxId")
+              errorsStr += "<p style='color: red'>Vergi numaranızı yanlış girdiniz. Lütfen kontrol edin.</p>";
+            else if (err.field === "participants[].name")
+              errorsStr += "<p style='color: red'>Herhangi bir katılımcının isim bilgisini yanlış girdiniz. Lütfen kontrol edin.</p>";
+            else if (err.field === "participants[].lastname")
+              errorsStr += "<p style='color: red'>Herhangi bir katılımcının soyisim bilgisini yanlış girdiniz. Lütfen kontrol edin.</p>";
+            else if (err.field === "participants[].email")
+              errorsStr += "<p style='color: red'>Herhangi bir katılımcının email bilgisini yanlış girdiniz. Lütfen kontrol edin.</p>";
+          })
+          document.getElementById("errors").innerHTML = errorsStr;
+          openModal();
+        })
+      } else {
+        alert("reCaptcha hatası!");
+      }
+    });
+
+    function validateForm() {
+      if(grecaptcha.getResponse()) {
+        return true;
+      } else {
+        alert("Lütfen Bot Olmadığınızı Doğrulayın.");
+        return false;
+      }
+    }
+
+    function participantChanged(){
+      setTimeout(function () {
+        document.getElementById("calc-price").innerText = ((selectedCount * 2999) * 0.18 + (selectedCount * 2999)).toLocaleString('tr-TR', {
+          style: 'currency',
+          currency: 'TRY',
+        });
+      }, 1000)
+    }
+  </script>
 </html>
