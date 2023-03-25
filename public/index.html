@@ -11,6 +11,7 @@
   </head>
   <body style="background-color: #ECEDF2;">
     <div id="root"></div>
+    <!--
     <div class="container" style="background-color: #ECEDF2; margin-bottom: 50px; margin-top: 50px">
       <form style="background-color: #FFFFFF; padding: 32px;" onsubmit="return validateForm()">
         <div class="form-group" style="margin-bottom: 60px;">
@@ -348,29 +349,6 @@
         </fieldset>
         <fieldset style="display: none;">
 
-          <div class="overlay hidden"></div>
-
-          <div class="row">
-            <div class="col">
-              <div class="form-group" style="margin-bottom: 50px;">
-                <h3>Ödeme Tipi</h3>
-                <select class="form-control" name="paymentType">
-                  <option value="" disabled selected>Ödeme Tipini Seçin...</option>
-                  <option value="CREDIT_CART">Kredi Kartı</option>
-                </select>
-              </div>
-            </div>
-            <div class="col-2"></div>
-            <div class="col">
-              <div class="form-group" style="margin-bottom: 50px;">
-                <h3>Tahsil Edilecek Ücret:</h3>
-                <span id="calc-price"></span>
-              </div>
-            </div>
-          </div>
-
-          <div class="g-recaptcha" data-sitekey="6LcjVQwiAAAAALipCC22tuNJF-qAXD96llsTWyv8"></div>
-          <br>
 
           <div class="row">
             <div class="col">
@@ -389,7 +367,7 @@
 
       </form>
     </div>
-
+-->
     <!-- Modal -->
     <section class="modal hidden">
       <div>
@@ -401,6 +379,7 @@
       </div>
     </section>
   </body>
+
   <style>
     .inputGroup {
       background-color: #f4fafe;
@@ -544,10 +523,69 @@
     .hidden{
       display: none;
     }
+    .form-group {
+      margin-bottom: 60px;
+    }
+    .form-group p strong {
+      font-weight: bold;
+    }
+    .form-group .col-5 p {
+      margin: 0;
+    }
+    .form-group .col p {
+      margin: 0;
+    }
+    .form-group h3 {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #343a40;
+    }
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      width: 100%;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #495057;
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+      transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    }
+    .form-group input[type="text"]:focus,
+    .form-group input[type="email"]:focus {
+      outline: none;
+      border-color: #80bdff;
+      box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25);
+    }
+    .btn-primary {
+      margin: 0 auto;
+      display: block;
+      border-radius: 25px;
+      background-color: #162d3d;
+      padding: 10px 20px;
+      font-size: 15px;
+    }
+    .btn-primary:hover {
+      background-color: #305e79;
+    }
+    .container {
+      background-color: #ECEDF2; margin-bottom: 50px; margin-top: 50px
+    }
+    form {
+      background-color: #FFFFFF; padding: 32px;
+    }
+
   </style>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
           integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
           crossorigin="anonymous"></script>
+<!--
   <script>
     const fieldSets = document.querySelectorAll('fieldset');
     let currentPage = 0;
@@ -750,4 +788,5 @@
       }, 1000)
     }
   </script>
+  -->
 </html>
